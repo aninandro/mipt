@@ -20,5 +20,5 @@ elif operation == "*":
 
 file = open("output.txt", "w")
 file.write(str(s) + "\n")
-
+file.close()
     
