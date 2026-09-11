@@ -2,14 +2,17 @@ with open("input10.txt", "r") as f:
     s = "".join("".join(f.readlines()).splitlines()).strip().lower().split()
     arr = []
     for word in s:
+        new_word = ""
         for letter in range(len(word)):
-            l = word[letter]
-            print(l)
-            if l in "аяуюоёеэиы":
-                word = word[:letter+1] + f"с{l}"
-                print(word)
-        arr.append(word)
-    print(arr)
+            new_word += word[letter]
+            if new_word[-1] in "аяуюоёеэиы":
+                new_word += "с" + new_word[-1]
+                while letter < len(word) and word[letter] in "аяуюоёеэиы":
+                    letter += 1
+
+
+        arr.append(new_word)
+    print(" ".join(arr))
 
 
 
