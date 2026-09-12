@@ -1,8 +1,16 @@
 def check_mirror(string):
-    mirror_letters = ["A","H","I","M","O","T","U","V","W","X","Y","1","8","E","J","S","Z","3","L","2","5"]
-    if all(x in mirror_letters for x in string):
-        return True
-    return False
+    mirror_letters = {
+        "A" : "A", "H" : "H", "I" : "I", "M" : "M", "O" : "O", "T" : "T",
+        "U" : "U", "V" : "V", "W" : "W", "X" : "X", "Y" : "Y", "1" : "1",
+        "8" : "8", "E" : "3", "J" : "L", "S" : "2", "Z" : "5", "3" : "E",
+        "L" : "J", "2" : "S", "5" : "Z"
+            }
+    for i in range(len(string)):
+        if string[i] not in list(mirror_letters.keys()):
+            return False
+        if mirror_letters[string[i]] != string[len(string) - i - 1]:
+            return False
+    return True
     
 def check_palindrome(string):
     return string == string[::-1]
