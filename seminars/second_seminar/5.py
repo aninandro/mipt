@@ -1,6 +1,14 @@
-arr = [1,2,3,4,5]
+arr = []
+print("Enter elements (type 'stop' to stop input): \n")
+n = input()
 
-arr.insert(0,arr[-1])
-arr.pop()
+while n != "stop":
+    arr.append(n)
+    n = input()
+if len(arr) == 0:
+    print("Error, list must be filled")
+else:
+    arr.insert(0,arr[-1])
+    arr.pop()
 
-print(arr)
+    print(arr)
