@@ -26,12 +26,16 @@ def fill_matrix(matrix, n, m):
             value += 1
         y_cursor -= 1
         x_cursor -= 1
+        if top > bottom:
+            break
         while x_cursor >= left:
             matrix[y_cursor][x_cursor] = value
             x_cursor -= 1
             value += 1
         x_cursor += 1
         y_cursor -= 1
+        if left > right:
+            break
         while y_cursor > top:
             matrix[y_cursor][x_cursor] = value
             y_cursor -= 1
