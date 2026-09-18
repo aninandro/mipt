@@ -1,15 +1,19 @@
 
 
 def prime(n):
-    p = 2
+    d = 2
     arr = []
     while n > 1:
-        if n % p == 0:
-            arr.append(p)
-            n //= p
+        if n % d == 0:
+            arr.append(d)
+            n //= d
         else:
-            p += 1
+            d += 1
     return arr
 
+def main():
+    number = int(input("Enter number: "))
+    x = prime(number)
+    print(f"Prime factors of {number}: {x}.")
 
-print(prime(60))
+main()
