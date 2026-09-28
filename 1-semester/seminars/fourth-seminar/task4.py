@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -6,8 +7,8 @@ sl = "SepalLengthCm"
 sw = "SepalWidthCm"
 pl = "PetalLengthCm"
 pw = "PetalWidthCm"
- 
-df = pd.read_csv('iris_data.csv')
+
+df = pd.read_csv("iris_data.csv")
 df1 = df[[sl, sw]]
 df2 = df[[sl, pl]]
 df3 = df[[sl, pw]]
@@ -30,6 +31,13 @@ for i in range(len(df_list)):
     x = df_list[i].columns[0]
     y = df_list[i].columns[1]
     plots[i].scatter(df_list[i][x], df_list[i][y])
+    plots[i].set_title(f"{y} on {x}")
+    plots[i].set_xlabel(x)
+    plots[i].set_ylabel(y)
+
+    slope, intercept = np.polyfit(df_list[i][x], df_list[i][y], 1)
+    #  function was suggested by google AI answers
+    plots[i].plot(df_list[i][x], slope * df_list[i][x] + intercept)
+    print(f"{y} от {x}: slope = {slope}, intersept = {intercept}")
 
 plt.show()
-
