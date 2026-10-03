@@ -4,7 +4,7 @@ import numpy as np
 rng = np.random.default_rng(1337)
 
 number = [10, 100, 1000, 10000]
-fig = plt.figure(figsize = (16,16))
+fig = plt.figure(figsize = (16,9))
 ax1 = fig.add_subplot(221)
 ax2 = fig.add_subplot(222)
 ax3 = fig.add_subplot(223)
